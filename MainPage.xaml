@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             x:Class="MauiLabDD.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="40,0"
+            VerticalOptions="Center">
+
+            
+            <StackLayout RadioButtonGroup.GroupName="answers">
+                <Image x:Name="QuizImage"
+                       Margin="0,10,0,0"
+                       Source="dotnet_bot.svg"
+                       HeightRequest="200"
+                       HorizontalOptions="Center"
+                       />
+                <Label x:Name="QuestionLabel" 
+                       Text="Take the Personality Quiz" 
+                       FontSize="20"
+                       Padding="15"
+                       Margin="10,10,10,10"
+                       BackgroundColor="DarkMagenta"
+                       VerticalOptions="Center" 
+                       HorizontalOptions="Center"
+                    ></Label>
+                <Grid ColumnDefinitions="*,*" WidthRequest="250">
+                    <RadioButton Grid.Column="0" x:Name="False"
+                                 Margin="15, 0, 0, 0"
+                                 CornerRadius="25"
+                                 WidthRequest="110"
+                                 Content="False"
+                                 IsChecked="False"
+                                 HorizontalOptions="CenterAndExpand"
+                                 BackgroundColor="Red" 
+                                 GroupName="set1"
+                                 IsVisible="false"
+                                 ></RadioButton>
+                    <RadioButton Grid.Column="1" x:Name="True"
+                                 Margin="15, 0, 0, 0"
+                                 CornerRadius="25"
+                                 WidthRequest="120"
+                                 Content="True"
+                                 IsChecked="True"
+                                 HorizontalOptions="CenterAndExpand" 
+                                 BackgroundColor="Green" 
+                                 GroupName="set1"
+                                 IsVisible="false"
+                                 ></RadioButton>
+                </Grid>
+                
+                <Button x:Name="Confirm" 
+                        Text="Begin"
+                        BackgroundColor="Beige"
+                        Padding="15" 
+                        Margin="15"
+                        FontSize="16"
+                        Clicked="ConfirmClicked"></Button>
+
+                <Label x:Name="TestOutput" Text="Output" IsVisible="false"></Label>
+                <Button x:Name="ResetAnswers" 
+                        Text="Clear Answers" 
+                        Clicked="ClearAnswers"
+                        BackgroundColor="Firebrick"
+                        TextColor="AntiqueWhite"
+                        FontSize="14"
+                        ></Button>
+            </StackLayout>
+                 
+            
+            
+            
+
+            <Image
+                x:Name="TheImage"
+                Source="cat.png"
+                SemanticProperties.Description="Ugly Cat"
+                HeightRequest="200"
+                HorizontalOptions="Center"
+                />
+
+            <Label
+                x:Name="TheText"
+                Text="Ugly Cat"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center"/>
+
+            <Button 
+                x:Name="Btn"
+                Text="Dog"
+                Clicked="OnClicked"
+                HorizontalOptions="Center"
+                />
+
+            <CollectionView>
+                <CollectionView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>I handle my problems, at a distance.</x:String>
+                        <x:String>I prefer to settle conflicts personally.</x:String>
+                        <x:String>A clever hand is preferable over a daft one.</x:String>
+                        <x:String>I lead by example, good or bad.</x:String>
+                        <x:String>I prefer to be a cog in the machine.</x:String>
+                    </x:Array>
+                </CollectionView.ItemsSource>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="0.5">
+                            <Frame>
+                                <StackLayout>
+                                    <Image x:Name="bot" Source="dotnet_bot.svg"></Image>
+                                    <Label Text="{Binding .}" HorizontalOptions="Center" FontSize="24" TextColor="Black" BackgroundColor="Grey"></Label>
+                                    <Button Text="True"   BackgroundColor="LightGreen" Clicked="TrueClicked"></Button>
+                                    <Button Text="False" BackgroundColor="LightSalmon" Clicked="FalseClicked"></Button>
+                                </StackLayout>
+                            </Frame>
+                            
+                            
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
